@@ -111,6 +111,10 @@ def start_game():
     player_choice = assign_player_choices(player_choice, player1, player2, choices, player_choice_input)
 
     while True:
+        if len(pending_movements) == 0:
+            print('It is a tie!')
+            play_again_input = get_user_input("Do you want to play again?: {}: ".format(play_again_choices), play_again_choices, "Only allowed: {}".format(play_again_choices))
+            break
         player_movement = get_user_input("Player {} chose your movement: {}: ".format(current_player, pending_movements), pending_movements, "Only allowed: {}".format(pending_movements))
         pending_movements.remove(player_movement)
         row, col = get_index(player_movement, game_board_help)
