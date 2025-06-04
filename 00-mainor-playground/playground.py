@@ -1,3 +1,14 @@
+import re
+
+text = "My telephone number is 408-555-1234"
+# text = "My telephone number is 408-none of your business"
+my_re = re.search(r'\d{3}-\d{3}-\d{4}',text)
+if my_re:
+    the_phone = my_re.group()
+else:
+    print('not found!')
+
+
 def myfunc0(name):
     print('Hello {}'.format(name))
 
